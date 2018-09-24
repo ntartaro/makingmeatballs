@@ -23,4 +23,11 @@ router.post('/new', (req, res) => {
     })
 })
 
+router.get('/delete', (req, res) => {
+    console.log('delete')
+    Post.find({}).remove().then ( post => {
+    res.redirect('/')
+})
+})
+
 module.exports = router;
