@@ -2,9 +2,17 @@ const express = require("express")
 const router = express.Router()
 const Post = require("../models/Post")
 
+
+// module.exports = {
+// new: (req, res) => {
+//     res.render('post/new')
+// }    
+// }
 router.get('/new', (req, res) => {
     res.render('post/new')
 })
+
+
 
 router.post('/new', (req, res) => {
     console.log(req)
