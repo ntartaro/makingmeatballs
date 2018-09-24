@@ -1,0 +1,13 @@
+<p>
+    {{foundThing}}
+    <form action='/post/new' method='post'>
+        Title:<br>
+        <input type="text" name="title" value="{{{foundThing.title}}}"><br>
+        Description:<br>
+        <input type="text" name="description" value="{{{foundThing.description}}}"><br>
+        Instructions:<br>
+        <input type="text" name="instructions" value="{{{foundThing.instructions}}}"><br>
+        <input type="submit" value="Post">
+        <input type="submit" value="Delete" method='delete'>
+    </form> 
+</p>

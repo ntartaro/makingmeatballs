@@ -1,6 +1,18 @@
 <p>This is the index page</p>
 
-{{ posts }}
+{{!-- {{ posts }} --}}
+
+{{!-- {{posts.[0].description}} --}}
+{{#each posts}}
+{{_id}}
+{{/each}}
+
+
+{{#each posts}}
+<h1>Title: <a href='/post/update/{{_id}}'> {{title}} </a></h1>
+<h2>Descriptions: {{description}}</h2>
+<h2>Instructions: {{instructions}}</h2>
+{{/each}}
 
 <div><a href="/post/delete">NO MORE SAUCE FOR YOU</a>
 </div>

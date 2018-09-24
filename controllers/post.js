@@ -2,17 +2,9 @@ const express = require("express")
 const router = express.Router()
 const Post = require("../models/Post")
 
-
-// module.exports = {
-// new: (req, res) => {
-//     res.render('post/new')
-// }    
-// }
 router.get('/new', (req, res) => {
     res.render('post/new')
 })
-
-
 
 router.post('/new', (req, res) => {
     console.log(req)
@@ -21,21 +13,30 @@ router.post('/new', (req, res) => {
         title: req.body.title,
         description: req.body.description,
         instructions: req.body.instructions
-    // })
-    // Post.create({
-    //     title: "hey",
-    //     description: "sup",
-    //     instructions: "instructions"
     }).then( post => {
         res.redirect('/')
     })
 })
 
-router.get('/delete', (req, res) => {
-    console.log('delete')
-    Post.find({}).remove().then ( post => {
-    res.redirect('/')
-})
+router.get('/update', (req, res) => {
+    res.render('post/update')
 })
 
-module.exports = router;
+
+router.get('/update/:id', (req, res) => {
+    Post.findById(req.params.id).then( foundObject => {
+        console.log(foundObject)
+        res.render('post/update', { foundThing: foundObject })
+    })
+    
+})
+
+
+router.get('/delete', (req, res) => {
+    console.log('delete')
+    Post.find({}).remove().then( post => {
+    res.redirect('/')
+    })
+})
+
+module.exports = router; 
