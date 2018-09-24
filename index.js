@@ -2,6 +2,7 @@ const express = require("express")
 const hbs = require("hbs")
 const bodyParser = require("body-parser")
 const app = express()
+const Post = require('./models/Post')
 
 //handles form submissions
 app.use(bodyParser.urlencoded({ extended: true}))   
@@ -17,7 +18,9 @@ app.use("/post", require("./controllers/post"))
 
 
 app.get('/', (req, res) => {
-    res.render('app/index')
+    Post.find({}).then(posts => {
+        res.render('app/index', { posts })
+    })
 })
 
 app.listen(3000, () => {})
