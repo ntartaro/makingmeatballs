@@ -15,12 +15,6 @@ app.set('view engine', 'hbs')
 
 //routes to controllers
 
-// app.use("/", require("./controllers/application.js"))
-=======
-app.use("/", require("./controllers/application"))
-
-
-//app.use("/user", require("./controllers/user"))
 app.use(require("./routes/index.js"));
 
 app.get('/', (req, res) => {
@@ -29,12 +23,8 @@ app.get('/', (req, res) => {
     })
 })
 
-
 app.listen(3000, () => {
     console.log('server is listening');
 });
 
-
-=======
-app.listen(3000, () => {})
 
