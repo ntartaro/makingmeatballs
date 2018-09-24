@@ -12,9 +12,9 @@ app.set('view engine', 'hbs')
 //app.use(require("./routes/index.js"))               
 
 //routes to controllers
-app.use("/", require("./controllers/application.js"))
+// app.use("/", require("./controllers/application.js"))
 //app.use("/user", require("./controllers/user"))
-app.use("/post", require("./routes/post"));
+app.use(require("./routes/index.js"));
 
 
 app.get('/', (req, res) => {
