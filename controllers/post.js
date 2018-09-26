@@ -32,10 +32,13 @@ module.exports = {
         })
     }
 };
+router.get('/update/:id', (req, res) => {
+    Post.findById(req.params.id).then( foundObject => {
+        res.render('post/update', { foundThing: foundObject })
+    })
+})
 
 // router.post('/new', (req, res) => {
-//     console.log(req)
-//     console.log(req.body)
 //     Post.create({
 //         title: req.body.title,
 //         description: req.body.description,
@@ -44,9 +47,7 @@ module.exports = {
 //         res.redirect('/')
 //     })
 // })
-
 // router.get('/delete', (req, res) => {
-//     console.log('delete')
 //     Post.find({}).remove().then ( post => {
 //     res.redirect('/')
 // })
@@ -60,10 +61,5 @@ module.exports = {
 //     res.render('post/update')
 // })
 
-router.get('/update/:id', (req, res) => {
-    Post.findById(req.params.id).then( foundObject => {
-        res.render('post/update', { foundThing: foundObject })
-    })
-})
 
 // module.exports = router; 
