@@ -14,11 +14,9 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('user/new', (req, res) => {
-    res.render('views/user/new')
-})
+app.set('port', process.env.PORT || 3000)
 
-app.listen(3000, () => {
+app.listen(app.get('port'), () => {
     console.log('server is listening');
 });
 
